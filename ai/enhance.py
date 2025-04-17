@@ -26,13 +26,17 @@ def parse_args():
 
 def main():
     args = parse_args()
-    model_name = os.environ.get("MODEL_NAME", 'deepseek-chat')
-    language = os.environ.get("LANGUAGE", 'Chinese')
+    # model_name = os.environ.get("MODEL_NAME", 'deepseek-chat')
+    model_name = "deepseek-chat"
+    assert model_name == "deepseek-chat"
+    language = "Chinese"
+    # language = os.environ.get("LANGUAGE", 'Chinese')
 
     data = []
     with open(args.data, "r") as f:
         for line in f:
             data.append(json.loads(line))
+    assert data != []
 
     seen_ids = set()
     unique_data = []
